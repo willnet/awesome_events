@@ -13,3 +13,5 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'omniauth', '1.1.4'
+gem 'omniauth-twitter', '1.0.1'
