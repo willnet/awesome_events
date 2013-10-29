@@ -122,8 +122,8 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
-  omniauth
-  omniauth-twitter
+  omniauth (= 1.1.4)
+  omniauth-twitter (= 1.0.1)
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc
