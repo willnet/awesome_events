@@ -14,7 +14,11 @@
           <%= link_to 'AwesomeEvents', root_path, class: 'navbar-brand' %>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'twitterでログイン', '/auth/twitter' %></li>
+          <% if logged_in? %>
+            <li><%= link_to 'ログアウト', logout_path %></li>
+          <% else %>
+            <li><%= link_to 'twitterでログイン', '/auth/twitter' %></li>
+          <% end %>
         </ul>
       </div>
     </header>
