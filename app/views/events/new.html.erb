@@ -1,0 +1,41 @@
+<% now = Time.zone.now %>
+
+<%= form_for(@event, class: 'form-horizontal', role: 'form') do |f| %>
+  <% if @event.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :place %>
+    <%= f.text_field :place, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :start_time %>
+    <div>
+      <%= f.datetime_select :start_time, start_year: now.year, end_year: now.year + 1 %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :end_time %>
+    <div>
+      <%= f.datetime_select :end_time, start_year: now.year, end_year: now.year + 1 %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content, class: 'form-control', row: 10 %>
+  </div>
+
+  <%= f.submit '作成', class: 'btn btn-default', disable_with: '作成中…' %>
+<% end %>
+
