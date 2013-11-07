@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      event: イベント
+      user: ユーザ
+
+    attributes:
+      event:
+        name: 名前
+        place: 場所
+        start_time: 開始時間
+        end_time: 終了時間
+        content: 内容
+      user:
+        provider: provider
+        uid: uid
+        image_url: image_url
+        nickname: nickname
+
