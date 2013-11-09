@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 class EventsController < ApplicationController
-  before_action :authenticate, expect: :index
+  before_action :authenticate, except: :show
 
-  def index
-    @events = Event.all
+  def show
+    @event = Event.find(params[:id])
   end
 
   def new
@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      redirect_to events_path, notice: '作成しました'
+      redirect_to @event, notice: '作成しました'
     else
       render :new
     end
