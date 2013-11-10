@@ -3,39 +3,94 @@
     <%= @event.name %>
   </h1>
 </div>
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        主催者
+      </div>
+      <div class="panel-body">
+        <%= link_to("https://twitter.com/#{@event.owner.nickname}") do %>
+          <%= image_tag @event.owner.image_url %>
+          <%= "@#{@event.owner.nickname}" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        開催時間
+      </div>
+      <div class="panel-body">
+        <%= @event.start_time.strftime('%Y/%m/%d %H:%M') %> - <%= @event.end_time.strftime('%Y/%m/%d %H:%M') %>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        開催場所
+      </div>
+      <div class="panel-body">
+        <%= @event.place %>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        イベント内容
+      </div>
+      <div class="panel-body">
+        <%= @event.content %>
+      </div>
+    </div>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    主催者
   </div>
-  <div class="panel-body">
-    <%= link_to("https://twitter.com/#{@event.owner.nickname}") do %>
-      <%= image_tag @event.owner.image_url %>
-      <%= "@#{@event.owner.nickname}" %>
+  <div class="col-md-4">
+    <% if @ticket %>
+      <%= link_to 'このイベントの参加をキャンセルする', event_ticket_path(@event, @ticket), method: :delete, class: 'btn btn-danger btn-lg btn-block' %>
+    <% elsif logged_in?%>
+      <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#createTicket">
+        参加する
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="createTicket" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">参加コメント</h4>
+            </div>
+            <%= form_for(@event.tickets.build, url: event_tickets_path(@event), remote: true) do |f| %>
+              <div class="modal-body">
+                <%= f.text_field :comment, class: 'form-control' %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+                <%= f.button '送信', class: 'btn btn-primary', disable_with: '送信中…' %>
+              </div>
+            <% end %>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+    <% else %>
+      <%= link_to '参加する', new_event_ticket_path(@event), class: "btn btn-primary btn-lg btn-block" %>
     <% end %>
-  </div>
-</div>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    開催時間
-  </div>
-  <div class="panel-body">
-    <%= @event.start_time.strftime('%Y/%m/%d %H:%M') %> - <%= @event.end_time.strftime('%Y/%m/%d %H:%M') %>
-  </div>
-</div>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    開催場所
-  </div>
-  <div class="panel-body">
-    <%= @event.place %>
-  </div>
-</div>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    イベント内容
-  </div>
-  <div class="panel-body">
-    <%= @event.content %>
+    <hr>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        参加者
+      </div>
+      <div class="panel-body">
+        <ul class="list-unstyled">
+          <% @tickets.each do |ticket| %>
+            <li>
+              <%= link_to("https://twitter.com/#{ticket.user.nickname}") do %>
+                <%= image_tag ticket.user.image_url, width: 20, height: 20 %>
+                <%= "@#{ticket.user.nickname}" %>
+              <% end %>
+              <%= ticket.comment %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

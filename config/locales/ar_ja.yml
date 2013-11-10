@@ -3,7 +3,7 @@ ja:
     models:
       event: イベント
       user: ユーザ
-
+      ticket: チケット
     attributes:
       event:
         name: 名前
@@ -16,4 +16,6 @@ ja:
         uid: uid
         image_url: image_url
         nickname: nickname
+      ticket:
+        comment: コメント
 
