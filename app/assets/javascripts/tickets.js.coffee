@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 # 
 $(document).on 'ajax:success', '#createTicket', (xhr, data, status) ->
-  location.href = location
+  location.reload()
 
 $(document).on 'ajax:error', '#createTicket', (xhr, data, status) ->
   form = $('#new_ticket .modal-body')
