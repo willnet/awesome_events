@@ -1,0 +1,25 @@
+<div class="page-header">
+  <h1>退会の確認</h1>
+</div>
+<% if current_user.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+      <% current_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<p>退会した場合、ユーザに関するデータが全て削除されます。</p>
+<p>ただし、以下の場合は退会できません。</p>
+<ul>
+  <li>
+    公開中の未終了イベントがある場合
+  </li>
+  <li>
+    未終了の参加イベントがある場合
+  </li>
+</ul>
+<hr>
+<%= link_to '退会する', user_path, method: :delete, class: 'btn btn-danger' %>

@@ -16,6 +16,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to 'イベントを作る', new_event_path %></li>
           <% if logged_in? %>
+            <li><%= link_to '退会', retire_user_path %></li>
             <li><%= link_to 'ログアウト', logout_path %></li>
           <% else %>
             <li><%= link_to 'twitterでログイン', '/auth/twitter' %></li>

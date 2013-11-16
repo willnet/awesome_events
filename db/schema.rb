@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20131110041151) do
 
   create_table "events", force: true do |t|
-    t.integer  "owner_id",   null: false
+    t.integer  "owner_id"
     t.string   "name",       null: false
     t.string   "place",      null: false
     t.datetime "start_time", null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20131110041151) do
   add_index "events", ["owner_id"], name: "index_events_on_owner_id"
 
   create_table "tickets", force: true do |t|
-    t.integer  "user_id",    null: false
+    t.integer  "user_id"
     t.integer  "event_id",   null: false
     t.string   "comment"
     t.datetime "created_at"
@@ -38,12 +38,14 @@ ActiveRecord::Schema.define(version: 20131110041151) do
   add_index "tickets", ["user_id", "event_id"], name: "index_tickets_on_user_id_and_event_id", unique: true
 
   create_table "users", force: true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "nickname"
-    t.string   "image_url"
+    t.string   "provider",   null: false
+    t.string   "uid",        null: false
+    t.string   "nickname",   null: false
+    t.string   "image_url",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
 
 end
