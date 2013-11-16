@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   gem 'sdoc', require: false
 end
-
 gem 'omniauth', '1.1.4'
 gem 'omniauth-twitter', '1.0.1'
+gem 'kaminari', '0.14.1'
+gem 'kaminari-bootstrap', github: 'mcasimir/kaminari-bootstrap'
