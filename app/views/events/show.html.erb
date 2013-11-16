@@ -45,9 +45,11 @@
   <div class="col-md-4">
     <% if @event.created_by?(current_user) %>
       <%= link_to 'イベントを編集する', edit_event_path(@event), class: 'btn btn-info btn-lg btn-block' %>
+      <%= link_to 'イベントを削除する', event_path(@event), class: 'btn btn-danger btn-lg btn-block', method: :delete, data: { confirm: '本当に削除しますか？' } %>
+
     <% end %>
     <% if @ticket %>
-      <%= link_to 'このイベントの参加をキャンセルする', event_ticket_path(@event, @ticket), method: :delete, class: 'btn btn-danger btn-lg btn-block' %>
+      <%= link_to 'このイベントの参加をキャンセルする', event_ticket_path(@event, @ticket), method: :delete, class: 'btn btn-warning btn-lg btn-block' %>
     <% elsif logged_in?%>
       <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#createTicket">
         参加する
