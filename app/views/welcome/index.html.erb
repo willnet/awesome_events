@@ -1,6 +1,20 @@
+<% now = Time.zone.now %>
 <div class="page-header">
   <h1>イベント一覧</h1>
 </div>
+<%= search_form_for(@q, url: root_path, class: 'well') do |f| %>
+  <div class="form-group">
+    <%= f.label :name_cont, '名前' %>
+    <%= f.text_field :name_cont, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :start_time_gteq, '開催日' %>
+    <div>
+      <%= f.date_select :start_time_gteq, start_year: now.year, end_year: now.year + 1, prompt: true  %>〜
+    </div>
+  </div>
+  <%= f.submit '検索', class: 'btn btn-default' %>
+<% end %>
 <div class="list-group">
   <% @events.each do |event| %>
     <%= link_to(event, class: 'list-group-item') do %>
