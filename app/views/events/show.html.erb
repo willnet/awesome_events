@@ -5,6 +5,11 @@
 </div>
 <div class="row">
   <div class="col-md-8">
+    <% if @event.event_image? %>
+      <div class="thumbnail">
+        <%= image_tag @event.event_image.url %>
+      </div>
+    <% end %>
     <div class="panel panel-default">
       <div class="panel-heading">
         主催者

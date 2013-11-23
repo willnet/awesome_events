@@ -11,6 +11,7 @@ ja:
         start_time: 開始時間
         end_time: 終了時間
         content: 内容
+        event_image: イベント画像
       user:
         provider: provider
         uid: uid

@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 class Event < ActiveRecord::Base
+  mount_uploader :event_image, EventImageUploader
+
   has_many :tickets, dependent: :destroy
   belongs_to :owner, class_name: 'User'
-  
+
   validates :name, length: { maximum: 50 }, presence: true
   validates :place, length: { maximum: 100 }, presence: true
   validates :content, length: { maximum: 2000 }, presence: true

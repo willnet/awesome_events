@@ -20,6 +20,23 @@
     <%= f.text_field :place, class: 'form-control' %>
   </div>
   <div class="form-group">
+    <% if @event.event_image? %>
+      <div class="thumbnail">
+        <%= image_tag @event.event_image.url %>
+      </div>
+    <% end %>
+    <%= f.file_field :event_image %>
+    <%= f.hidden_field :event_image_cache %>
+  </div>
+  <% if @event.event_image? %>
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :remove_event_image %>
+        画像を削除する
+      </label>
+    </div>
+  <% end %>
+  <div class="form-group">
     <%= f.label :start_time %>
     <div>
       <%= f.datetime_select :start_time, start_year: now.year, end_year: now.year + 1 %>
