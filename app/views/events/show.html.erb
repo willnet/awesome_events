@@ -49,28 +49,24 @@
         <%= @event.content %>
       </div>
     </div>
-
   </div>
   <div class="col-md-4">
     <% if @event.created_by?(current_user) %>
       <%= link_to 'イベントを編集する', edit_event_path(@event), class: 'btn btn-info btn-lg btn-block' %>
       <%= link_to 'イベントを削除する', event_path(@event), class: 'btn btn-danger btn-lg btn-block', method: :delete, data: { confirm: '本当に削除しますか？' } %>
-
     <% end %>
     <% if @ticket %>
       <%= link_to 'このイベントの参加をキャンセルする', event_ticket_path(@event, @ticket), method: :delete, class: 'btn btn-warning btn-lg btn-block' %>
-    <% elsif logged_in?%>
+    <% elsif logged_in? %>
       <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#createTicket">
         参加する
       </button>
-
-      <!-- Modal -->
-      <div class="modal fade" id="createTicket" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal fade" id="createTicket" tabindex="-1" role="dialog" aria-labelledby="dialogHeader" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title" id="myModalLabel">参加コメント</h4>
+              <h4 class="modal-title" id="dialogHeader">参加コメント</h4>
             </div>
             <%= form_for(@event.tickets.build, url: event_tickets_path(@event), remote: true) do |f| %>
               <div class="modal-body">
@@ -81,9 +77,9 @@
                 <%= f.button '送信', class: 'btn btn-primary', data: { disable_with: '送信中…' } %>
               </div>
             <% end %>
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+          </div>
+        </div>
+      </div>
     <% else %>
       <%= link_to '参加する', new_event_ticket_path(@event), class: "btn btn-primary btn-lg btn-block" %>
     <% end %>
