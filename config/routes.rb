@@ -3,12 +3,12 @@ AwesomeEvents::Application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: :logout
 
-  resource :user do
+  resource :user, only: :destroy do
     get 'retire'
   end
 
-  resources :events do
-    resources :tickets
+  resources :events, except: :index do
+    resources :tickets, only: [:new, :create, :destroy]
   end
   match '*path' => 'application#error404', via: :all
 end
