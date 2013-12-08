@@ -3,7 +3,7 @@ $(document).on 'ajax:success', '#createTicket', (xhr, data, status) ->
 
 $(document).on 'ajax:error', '#createTicket', (xhr, data, status) ->
   form = $('#new_ticket .modal-body')
-  div = $('<div></div>').attr(id: 'createTicketErrors').addClass('alert alert-danger')
+  div = $('<div id="createTicketErrors" class="alert alert-danger"></div>')
   ul = $('<ul></ul>')
   data.responseJSON.messages.forEach (message, i) -> 
     li = $('<li></li>').text(message)
