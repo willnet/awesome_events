@@ -29,6 +29,6 @@ class User < ActiveRecord::Base
     if participating_events.where(':now < end_time', now: now).exists?
       errors[:base] << '未終了の参加イベントが存在します。'
     end
-    return false unless errors.blank?
+    errors.blank?
   end
 end
