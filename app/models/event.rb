@@ -22,6 +22,10 @@ class Event < ActiveRecord::Base
     %w(name start_time)
   end
 
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
+
   private
 
   def start_time_should_be_before_end_time
