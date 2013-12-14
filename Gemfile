@@ -15,3 +15,11 @@ gem 'ransack', '~> 1.1.0'
 gem 'carrierwave', '~> 0.9.0'
 gem 'carrierwave-magic', '~> 0.0.4'
 gem 'mini_magick', '~> 3.7.0'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+end
+
+group :test do
+  gem 'shoulda-matchers'
+end
