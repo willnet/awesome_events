@@ -18,8 +18,10 @@ gem 'mini_magick', '~> 3.7.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'factory_girl_rails', '4.3.0'
 end
 
 group :test do
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
+  gem 'timecop'
 end
