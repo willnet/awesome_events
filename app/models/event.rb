@@ -12,6 +12,7 @@ class Event < ActiveRecord::Base
   validates :end_time, presence: true
 
   validate :start_time_should_be_before_end_time
+  validate :event_image_should_have_valid_mime_type, if: lambda { |event| event.event_image_changed? && event.errors[:event_image].blank? }
 
   def created_by?(user)
     return false unless user
@@ -33,6 +34,13 @@ class Event < ActiveRecord::Base
 
     if start_time >= end_time
       errors.add(:start_time, 'は終了時間よりも前に設定してください')
+    end
+  end
+
+  def event_image_should_have_valid_mime_type
+    binding.pry
+    unless event_image.file.content_type.in? %w(image/jpeg image/png image/gif)
+      errors.add(:event_image, "のファイル形式が不正です。")
     end
   end
 end
