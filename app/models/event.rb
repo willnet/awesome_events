@@ -38,7 +38,6 @@ class Event < ActiveRecord::Base
   end
 
   def event_image_should_have_valid_mime_type
-    binding.pry
     unless event_image.file.content_type.in? %w(image/jpeg image/png image/gif)
       errors.add(:event_image, "のファイル形式が不正です。")
     end
