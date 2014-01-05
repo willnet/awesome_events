@@ -32,18 +32,18 @@ describe Event do
     let(:now) { Time.zone.now }
 
     context '#start_time もしくは #end_time が nil なとき' do
-      it '#errors が空であること' do
+      it '#errors[:start_time] が空であること' do
         event = Event.new(start_time: now, end_time: nil)
         event.send(:start_time_should_be_before_end_time)
-        expect(event.errors).to be_empty
+        expect(event.errors[:start_time]).to be_empty
 
         event = Event.new(start_time: nil, end_time: now)
         event.send(:start_time_should_be_before_end_time)
-        expect(event.errors).to be_empty
+        expect(event.errors[:start_time]).to be_empty
 
         event = Event.new(start_time: nil, end_time: nil)
         event.send(:start_time_should_be_before_end_time)
-        expect(event.errors).to be_empty
+        expect(event.errors[:start_time]).to be_empty
       end
     end
 
@@ -51,7 +51,7 @@ describe Event do
       it '#errors[:start_time] が空でないこと' do
         event = Event.new(start_time: now, end_time: now)
         event.send(:start_time_should_be_before_end_time)
-        expect(event.errors).to be_present
+        expect(event.errors[:start_time]).to be_present
       end
     end
 
@@ -59,7 +59,7 @@ describe Event do
       it '#errors[:start_time] が空であること' do
         event = Event.new(start_time: now, end_time: now + 1.minute)
         event.send(:start_time_should_be_before_end_time)
-        expect(event.errors).to be_blank
+        expect(event.errors[:start_time]).to be_blank
       end
     end
 
@@ -67,7 +67,7 @@ describe Event do
       it '#errors[:start_time] が空でないこと' do
         event = Event.new(start_time: now, end_time: now - 1.minute)
         event.send(:start_time_should_be_before_end_time)
-        expect(event.errors).to be_present
+        expect(event.errors[:start_time]).to be_present
       end
     end
   end
