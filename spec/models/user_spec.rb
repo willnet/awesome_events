@@ -25,6 +25,7 @@ describe User do
         expect(user.uid).to eq 'uid'
         expect(user.nickname).to eq 'netwillnet'
         expect(user.image_url).to eq 'http://example.com/netwillnet.jpg'
+        expect(user).to be_persisted
       end
 
       it 'Userモデルのレコードが一件増えていること' do
