@@ -5,5 +5,5 @@ describe Ticket do
   it { should belong_to(:event) }
 
   it { should ensure_length_of(:comment).is_at_most(30) }
-  it { allow_value('', nil).for(:comment) }
+  it { should allow_value('', nil).for(:comment) }
 end
