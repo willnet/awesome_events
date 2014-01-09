@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe User do
-  it { should have_many(:events).with_foreign_key(:owner_id).dependent(:nullify) }
+  it { should have_many(:created_events).with_foreign_key(:owner_id).dependent(:nullify) }
   it { should have_many(:tickets).dependent(:nullify) }
   it { should have_many(:participating_events).source(:event).through(:tickets) }
 
