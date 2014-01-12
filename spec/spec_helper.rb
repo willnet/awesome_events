@@ -46,4 +46,16 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
   config.include FactoryGirl::Syntax::Methods
+
+  config.before(:all, type: :feature) do
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+        provider: 'twitter',
+        uid: '123545',
+        info: {
+          nickname: 'netwillnet',
+          image: 'http://example.com/netwillnet.jpg'
+        }
+      })
+  end
 end
