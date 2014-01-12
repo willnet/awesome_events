@@ -24,4 +24,6 @@ end
 group :test do
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem 'timecop'
+  gem 'capybara', '~> 2.2.0'
+  gem 'poltergeist', '~> 1.5.0'
 end
