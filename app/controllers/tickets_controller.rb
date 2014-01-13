@@ -12,6 +12,7 @@ class TicketsController < ApplicationController
       t.comment = params[:ticket][:comment]
     end
     if ticket.save
+      flash[:notice] = 'このイベントに参加表明しました'
       render nothing: true
     else
       render json: { messages: ticket.errors.full_messages }, status: 422
