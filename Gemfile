@@ -26,4 +26,5 @@ group :test do
   gem 'timecop'
   gem 'capybara', '~> 2.2.0'
   gem 'poltergeist', '~> 1.5.0'
+  gem 'database_cleaner', '~> 1.2.0'
 end
