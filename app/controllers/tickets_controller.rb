@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
   before_action :authenticate
 
   def new
-    raise ActionController::RoutingError.new('ログイン状態で TicketsController#new にアクセス')
+    raise ActionController::RoutingError, 'ログイン状態で TicketsController#new にアクセス'
   end
 
   def create

@@ -48,6 +48,7 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+  config.include Rails.application.routes.url_helpers
   config.include FactoryGirl::Syntax::Methods
 
   config.before(:all, type: :feature) do
