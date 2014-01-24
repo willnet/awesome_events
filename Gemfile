@@ -15,3 +15,7 @@ gem 'kaminari-bootstrap', '3.0.1'
 gem 'ransack', '1.1.0'
 gem 'carrierwave', '0.9.0'
 gem 'mini_magick', '3.7.0'
+
+gem "capistrano", "~> 3.0"
+gem "capistrano-rails"
+gem "capistrano-bundler"
