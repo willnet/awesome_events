@@ -54,18 +54,32 @@ describe EventsController do
   end
 
   describe 'GET #new' do
-    let!(:bob) { create :user, nickname: 'bob' }
-    before do
-      session[:user_id] = bob.id
-      get :new
+    context '未ログインユーザがアクセスしたとき' do
+      before { get :new }
+
+      it 'トップページにリダイレクトすること' do
+        expect(response).to redirect_to(root_path)
+      end
     end
 
-    it '@eventに、新規Eventオブジェクトが格納されていること' do
-      expect(assigns(:event)).to be_a_new(Event)
-    end
+    context 'ログインユーザがアクセスしたとき' do
+      before do
+        user = create :user
+        session[:user_id] = user.id
+        get :new
+      end
 
-    it 'newテンプレートをrenderしていること' do
-      expect(response).to render_template :new
+      it '200が返ること' do
+        expect(response.status).to eq(200)
+      end
+
+      it '@eventに、新規Eventオブジェクトが格納されていること' do
+        expect(assigns(:event)).to be_a_new(Event)
+      end
+
+      it 'newテンプレートをrenderしていること' do
+        expect(response).to render_template :new
+      end
     end
   end
 
