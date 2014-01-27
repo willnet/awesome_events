@@ -19,3 +19,5 @@ gem 'mini_magick', '3.7.0'
 gem "capistrano", "~> 3.0"
 gem "capistrano-rails"
 gem "capistrano-bundler"
+
+gem 'newrelic_rpm'

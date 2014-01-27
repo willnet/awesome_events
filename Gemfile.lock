@@ -78,6 +78,7 @@ GEM
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
+    newrelic_rpm (3.7.1.188)
     oauth (0.4.7)
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
@@ -163,6 +164,7 @@ DEPENDENCIES
   kaminari (= 0.15.0)
   kaminari-bootstrap (= 3.0.1)
   mini_magick (= 3.7.0)
+  newrelic_rpm
   omniauth (= 1.1.4)
   omniauth-twitter (= 1.0.1)
   rails (= 4.0.2)

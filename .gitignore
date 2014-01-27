@@ -15,3 +15,5 @@
 /log/*.log
 /tmp
 public/uploads
+
+vendor/bundle
