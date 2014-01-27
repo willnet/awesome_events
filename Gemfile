@@ -22,7 +22,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
+  gem 'shoulda-matchers', '~> 2.5.0'
   gem 'timecop'
   gem 'capybara', '~> 2.2.0'
   gem 'poltergeist', '~> 1.5.0'
