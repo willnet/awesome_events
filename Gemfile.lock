@@ -51,6 +51,9 @@ GEM
     coffee-script-source (1.6.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    fluent-logger (0.4.7)
+      msgpack (>= 0.4.4, < 0.6.0, != 0.5.3, != 0.5.2, != 0.5.1, != 0.5.0)
+      yajl-ruby (~> 1.0)
     hashie (2.0.5)
     hike (1.2.3)
     i18n (0.6.9)
@@ -74,6 +77,7 @@ GEM
     mini_magick (3.7.0)
       subexec (~> 0.2.1)
     minitest (4.7.5)
+    msgpack (0.5.8)
     multi_json (1.8.2)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -93,6 +97,9 @@ GEM
       activerecord (>= 3.0)
     polyglot (0.3.3)
     rack (1.5.2)
+    rack-common_logger-fluent (0.5.0)
+      fluent-logger
+      rack
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.2)
@@ -149,6 +156,7 @@ GEM
     uglifier (2.3.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    yajl-ruby (1.2.0)
 
 PLATFORMS
   ruby
@@ -167,6 +175,7 @@ DEPENDENCIES
   newrelic_rpm
   omniauth (= 1.1.4)
   omniauth-twitter (= 1.0.1)
+  rack-common_logger-fluent
   rails (= 4.0.2)
   ransack (= 1.1.0)
   sass-rails (= 4.0.1)

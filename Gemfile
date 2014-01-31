@@ -21,3 +21,5 @@ gem "capistrano-rails"
 gem "capistrano-bundler"
 
 gem 'newrelic_rpm'
+
+gem 'rack-common_logger-fluent'
