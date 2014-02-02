@@ -117,7 +117,7 @@ describe Event do
     end
 
     context '#owner_id と 引数の#id が同じとき' do
-      let(:user) { double('user', id: event.id) }
+      let(:user) { double('user', id: event.owner_id) }
       it { should be_truthy }
     end
   end
