@@ -51,6 +51,8 @@ RSpec.configure do |config|
   config.order = "random"
   config.include Rails.application.routes.url_helpers
   config.include FactoryGirl::Syntax::Methods
+  config.include(LoginHelper::Feature, type: :feature)
+  config.include(LoginHelper::Controller, type: :controller)
 
   config.before(:all, type: :feature) do
     OmniAuth.config.test_mode = true

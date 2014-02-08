@@ -31,7 +31,7 @@ describe EventsController do
 
     context 'イベントに参加表明しているログインユーザがアクセスしたとき' do
       before do
-        session[:user_id] = bob.id
+        login(bob)
         get :show, id: event.id
       end
 
@@ -57,15 +57,13 @@ describe EventsController do
     context '未ログインユーザがアクセスしたとき' do
       before { get :new }
 
-      it 'トップページにリダイレクトすること' do
-        expect(response).to redirect_to(root_path)
-      end
+      it_should_behave_like '認証が必要なページ'
     end
 
     context 'ログインユーザがアクセスしたとき' do
       before do
         user = create :user
-        session[:user_id] = user.id
+        login(user)
         get :new
       end
 
@@ -84,106 +82,180 @@ describe EventsController do
   end
 
   describe 'POST #create' do
-    let!(:bob) { create :user, nickname: 'bob' }
-    before do
-      session[:user_id] = bob.id
+    context '未ログインユーザがアクセスしたとき' do
+      before { post :create, event: attributes_for(:event) }
+
+      it_should_behave_like '認証が必要なページ'
     end
 
-    context 'パラメータが正しいとき' do
-      it 'Eventレコードが1件増えること' do
-        expect { post :create, event: attributes_for(:event) }.
-          to change { Event.count }.by(1)
+    context 'ログインユーザがアクセスしたとき' do
+      let!(:bob) { create :user, nickname: 'bob' }
+      before { login(bob) }
+
+      context 'パラメータが正しいとき' do
+        it 'Eventレコードが1件増えること' do
+          expect { post :create, event: attributes_for(:event) }.
+            to change { Event.count }.by(1)
+        end
+
+        it '@eventのshowアクションにリダイレクトすること' do
+          post :create, event: attributes_for(:event)
+          expect(response).to redirect_to(event_path(assigns[:event]))
+        end
       end
 
-      it '@eventのshowアクションにリダイレクトすること' do
-        post :create, event: attributes_for(:event)
-        expect(response).to redirect_to(event_path(assigns[:event]))
-      end
-    end
+      context 'パラメータが不正なとき' do
+        it 'Eventレコードの件数に変化がないこと' do
+          expect { post :create, event: attributes_for(:invalid_event) }.
+            not_to change { Event.count }
+        end
 
-    context 'パラメータが不正なとき' do
-      it 'Eventレコードの件数に変化がないこと' do
-        expect { post :create, event: attributes_for(:invalid_event) }.
-          not_to change { Event.count }
+        it 'newテンプレートをrenderしていること' do
+          post :create, event: attributes_for(:invalid_event)
+          expect(response).to render_template :new
+        end
       end
 
-      it 'newテンプレートをrenderしていること' do
-        post :create, event: attributes_for(:invalid_event)
-        expect(response).to render_template :new
-      end
     end
   end
 
   describe 'GET #edit' do
-    let!(:bob) { create :user, nickname: 'bob' }
-    let!(:event) { create :event, owner: bob }
+    let!(:owner) { create :user }
+    let!(:event) { create :event, owner: owner }
 
-    before do
-      session[:user_id] = bob.id
-      get :edit, id: event.id
+    context '未ログインユーザがアクセスしたとき' do
+      before { get :edit, id: event.id }
+
+      it_should_behave_like '認証が必要なページ'
     end
 
-    it '@eventに、リクエストしたEventオブジェクトが格納されていること' do
-      expect(assigns(:event)).to eq(event)
+
+    context 'ログインユーザかつイベントを作成したユーザがアクセスしたとき' do
+      before do
+        login(owner)
+        get :edit, id: event.id
+      end
+
+      it '@eventに、リクエストしたEventオブジェクトが格納されていること' do
+        expect(assigns(:event)).to eq(event)
+      end
+
+      it 'editテンプレートをrenderしていること' do
+        expect(response).to render_template :edit
+      end
     end
 
-    it 'editテンプレートをrenderしていること' do
-      expect(response).to render_template :edit
+    context 'ログインユーザかつイベントを作成していないユーザがアクセスしたとき' do
+      let!(:not_owner) { create :user }
+
+      before do
+        login(not_owner)
+        get :edit, id: event.id
+      end
+
+      it 'error404テンプレートをrenderしていること' do
+        expect(response).to render_template :error404
+      end
     end
   end
 
   describe 'PATCH #update' do
-    let!(:bob) { create :user, nickname: 'bob' }
-    let!(:event) { create :event, owner: bob }
+    let!(:owner) { create :user }
+    let!(:event) { create :event, owner: owner }
 
-    before do
-      session[:user_id] = bob.id
-    end
-
-    context 'パラメータが正しいとき' do
+    context '未ログインユーザがアクセスしたとき' do
       before do
-        patch :update, id: event.id, event: attributes_for(:event, name: 'Rails勉強会', place: '都内某所', content: 'Railsを勉強しよう', start_time: Time.zone.local(2014, 1, 1, 10, 0), end_time: Time.zone.local(2014, 1, 1, 19, 0))
+        patch :update, id: event.id, event: attributes_for(:event)
       end
 
-      it 'Eventレコードが正しく変更されていること' do
-        event.reload
-        expect(event.name).to eq('Rails勉強会')
-        expect(event.place).to eq('都内某所')
-        expect(event.content).to eq('Railsを勉強しよう')
-        expect(event.start_time).to eq(Time.zone.local(2014, 1, 1, 10, 0))
-        expect(event.end_time).to eq(Time.zone.local(2014, 1, 1, 19, 0))
+      it_should_behave_like '認証が必要なページ'
+    end
+
+    context 'ログインユーザかつイベントを作成したユーザがアクセスしたとき' do
+      before { login(owner) }
+
+      context 'かつパラメータが正しいとき' do
+        before do
+          patch :update, id: event.id, event: attributes_for(:event, name: 'Rails勉強会', place: '都内某所', content: 'Railsを勉強しよう', start_time: Time.zone.local(2014, 1, 1, 10, 0), end_time: Time.zone.local(2014, 1, 1, 19, 0))
+        end
+
+        it 'Eventレコードが正しく変更されていること' do
+          event.reload
+          expect(event.name).to eq('Rails勉強会')
+          expect(event.place).to eq('都内某所')
+          expect(event.content).to eq('Railsを勉強しよう')
+          expect(event.start_time).to eq(Time.zone.local(2014, 1, 1, 10, 0))
+          expect(event.end_time).to eq(Time.zone.local(2014, 1, 1, 19, 0))
+        end
+
+        it '@eventのshowアクションにリダイレクトすること' do
+          expect(response).to redirect_to(event_path(assigns[:event]))
+        end
       end
 
-      it '@eventのshowアクションにリダイレクトすること' do
-        expect(response).to redirect_to(event_path(assigns[:event]))
+      context 'かつパラメータが不正なとき' do
+        it 'Eventレコードが変更されていないこと' do
+          expect { patch :update, id: event.id, event: attributes_for(:event, name: '', place: '都内某所', content: 'Railsを勉強しよう', start_time: Time.zone.local(2014, 1, 1, 10, 0), end_time: Time.zone.local(2014, 1, 1, 19, 0)) }.not_to change { event.reload } 
+        end
+
+        it 'editテンプレートをrenderしていること' do
+          patch :update, id: event.id, event: attributes_for(:event, name: '', place: '都内某所', content: 'Railsを勉強しよう', start_time: Time.zone.local(2014, 1, 1, 10, 0), end_time: Time.zone.local(2014, 1, 1, 19, 0))
+          expect(response).to render_template :edit
+        end
       end
     end
 
-    context 'パラメータが不正なとき' do
-      it 'Eventレコードが変更されていないこと' do
-        expect { patch :update, id: event.id, event: attributes_for(:event, name: '', place: '都内某所', content: 'Railsを勉強しよう', start_time: Time.zone.local(2014, 1, 1, 10, 0), end_time: Time.zone.local(2014, 1, 1, 19, 0)) }.not_to change { event.reload } 
+    context 'ログインユーザかつイベントを作成していないユーザがアクセスしたとき' do
+      let!(:not_owner) { create :user }
+
+      before do
+        login(not_owner)
+        patch :update, id: event.id, event: attributes_for(:event)
       end
 
-      it 'editテンプレートをrenderしていること' do
-        patch :update, id: event.id, event: attributes_for(:event, name: '', place: '都内某所', content: 'Railsを勉強しよう', start_time: Time.zone.local(2014, 1, 1, 10, 0), end_time: Time.zone.local(2014, 1, 1, 19, 0))
-        expect(response).to render_template :edit
+      it 'error404テンプレートをrenderしていること' do
+        expect(response).to render_template :error404
       end
     end
   end
 
   describe 'DELETE #destroy' do
-    let!(:bob) { create :user, nickname: 'bob' }
-    let!(:event) { create :event, owner: bob }
-    before { session[:user_id] = bob.id }
+    let!(:owner) { create :user }
+    let!(:event) { create :event, owner: owner }
 
-    it 'Eventレコードが1件減っていること' do
-      expect { delete :destroy, id: event.id }.
-        to change { Event.count }.by(-1)
+    context '未ログインユーザがアクセスしたとき' do
+      before { delete :destroy, id: event.id }
+
+      it_should_behave_like '認証が必要なページ'
     end
 
-    it 'トップページにリダイレクトすること' do
-      delete :destroy, id: event.id
-      expect(response).to redirect_to(root_path)
+    context 'ログインユーザかつイベントを作成したユーザがクセスしたとき' do
+      before { login(owner) }
+
+      it 'Eventレコードが1件減っていること' do
+        expect { delete :destroy, id: event.id }.
+          to change { Event.count }.by(-1)
+      end
+
+      it 'トップページにリダイレクトすること' do
+        delete :destroy, id: event.id
+        expect(response).to redirect_to(root_path)
+      end
+    end
+
+    context 'ログインユーザかつイベントを作成していないユーザがクセスしたとき' do
+      let!(:not_owner) { create :user }
+      before { login(not_owner) }
+
+      it 'Eventレコードが減っていないこと' do
+        expect { delete :destroy, id: event.id }.
+          not_to change { Event.count }
+      end
+
+      it 'error404テンプレートをrenderしていること' do
+        delete :destroy, id: event.id
+        expect(response).to render_template :error404
+      end
     end
   end
 end
