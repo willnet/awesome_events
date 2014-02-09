@@ -63,7 +63,7 @@ describe ApplicationController do
     context 'かつログイン中なとき' do
       before { session[:user_id] = 1 }
 
-      it '200が返ること' do
+      it 'ステータスコードとして200が返ること' do
         get :require_login
         expect(response.status).to eq(200)
       end

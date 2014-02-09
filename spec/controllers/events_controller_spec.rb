@@ -67,7 +67,7 @@ describe EventsController do
         get :new
       end
 
-      it '200が返ること' do
+      it 'ステータスコードとして200が返ること' do
         expect(response.status).to eq(200)
       end
 
