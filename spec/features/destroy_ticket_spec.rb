@@ -10,8 +10,8 @@ describe 'ユーザがイベントの参加表明をキャンセルする' do
   context '未ログインのユーザがイベント詳細ページに遷移したとき' do
     before { visit event_path(not_participating_event) }
       
-    it '"このイベントの参加をキャンセルする"リンクが表示されていないこと' do
-      expect(page).to have_no_content('このイベントの参加をキャンセルする')
+    it '"参加をキャンセルする"リンクが表示されていないこと' do
+      expect(page).to have_no_content('参加をキャンセルする')
     end
   end
 
@@ -21,8 +21,8 @@ describe 'ユーザがイベントの参加表明をキャンセルする' do
       visit event_path(not_participating_event)
     end
 
-    it '"このイベントの参加をキャンセルする"リンクが表示されていないこと' do
-      expect(page).to have_no_content('このイベントの参加をキャンセルする')
+    it '"参加をキャンセルする"リンクが表示されていないこと' do
+      expect(page).to have_no_content('参加をキャンセルする')
     end
   end
 
@@ -36,12 +36,12 @@ describe 'ユーザがイベントの参加表明をキャンセルする' do
       expect(page).to have_content(user.nickname)
     end
 
-    it '"このイベントの参加をキャンセルする"リンクが表示されていること' do
-      expect(page).to have_content('このイベントの参加をキャンセルする')
+    it '"参加をキャンセルする"リンクが表示されていること' do
+      expect(page).to have_content('参加をキャンセルする')
     end
 
-    context 'かつ、"このイベントの参加をキャンセルする"リンクをクリックしたとき' do
-      before { click_link 'このイベントの参加をキャンセルする' }
+    context 'かつ、"参加をキャンセルする"リンクをクリックしたとき' do
+      before { click_link '参加をキャンセルする' }
 
       it '"このイベントの参加をキャンセルしました"と表示されていること' do
         expect(page).to have_content('このイベントの参加をキャンセルしました')
