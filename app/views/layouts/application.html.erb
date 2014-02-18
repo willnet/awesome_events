@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>AwesomeEvents</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -26,7 +27,7 @@
               <li><%= link_to '退会', retire_user_path %></li>
               <li><%= link_to 'ログアウト', logout_path %></li>
             <% else %>
-              <li><%= link_to 'twitterでログイン', '/auth/twitter' %></li>
+              <li><%= link_to 'Twitterでログイン', '/auth/twitter' %></li>
             <% end %>
           </ul>
         </div>

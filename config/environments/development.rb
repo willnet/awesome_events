@@ -26,8 +26,4 @@ AwesomeEvents::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
-  # Fluentd!
-  logger = Fluent::Logger::FluentLogger.new(nil, :host => 'localhost', :port => 24224)
-  config.middleware.use Rack::CommonLogger::Fluent, 'awesome_events', logger
 end

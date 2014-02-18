@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
   before_action :authenticate
 
   def new
-    render nothing: true
+    raise ActionController::RoutingError, 'ログイン状態で TicketsController#new にアクセス'
   end
 
   def create
@@ -12,6 +12,7 @@ class TicketsController < ApplicationController
       t.comment = params[:ticket][:comment]
     end
     if ticket.save
+      flash[:notice] = 'このイベントに参加表明しました'
       render nothing: true
     else
       render json: { messages: ticket.errors.full_messages }, status: 422
