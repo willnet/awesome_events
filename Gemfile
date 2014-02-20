@@ -16,6 +16,13 @@ gem 'carrierwave', '~> 0.9.0'
 gem 'carrierwave-magic', '~> 0.0.4'
 gem 'mini_magick', '~> 3.7.0'
 
+group :development do
+  gem "capistrano", "~> 3.0"
+  gem "capistrano-rails"
+  gem "capistrano-bundler"
+  gem "capistrano3-unicorn"
+end
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'factory_girl_rails', '4.3.0'
@@ -26,4 +33,8 @@ group :test do
   gem 'capybara', '~> 2.2.0'
   gem 'poltergeist', '~> 1.5.0'
   gem 'database_cleaner', '~> 1.2.0'
+end
+
+group :staging, :production do
+  gem 'unicorn'
 end
