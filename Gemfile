@@ -13,7 +13,6 @@ gem 'kaminari', '~> 0.15.1'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'ransack', '~> 1.1.0'
 gem 'carrierwave', '~> 0.9.0'
-gem 'carrierwave-magic', '~> 0.0.4'
 gem 'mini_magick', '~> 3.7.0'
 
 group :development do

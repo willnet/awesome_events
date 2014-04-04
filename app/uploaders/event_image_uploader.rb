@@ -2,8 +2,6 @@
 
 class EventImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  include CarrierWave::Magic
-  process :set_magic_content_type => true
 
   storage :file
 
