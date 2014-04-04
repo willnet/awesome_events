@@ -1,22 +1,22 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.2'
-gem 'sqlite3', '~> 1.3.8'
-gem 'sass-rails', '~> 4.0.1'
-gem 'uglifier', '~> 2.4.0'
-gem 'coffee-rails', '~> 4.0.1'
-gem 'jquery-rails', '~> 3.1.0'
-gem 'turbolinks', '~> 2.2.1'
-gem 'omniauth', '~> 1.2.1'
-gem 'omniauth-twitter', '~> 1.0.1'
-gem 'kaminari', '~> 0.15.1'
-gem 'kaminari-bootstrap', '~> 3.0.1'
-gem 'ransack', '~> 1.1.0'
-gem 'carrierwave', '~> 0.9.0'
-gem 'mini_magick', '~> 3.7.0'
+gem 'rails', '4.0.4'
+gem 'sqlite3'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+gem 'jquery-rails'
+gem 'turbolinks'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
+gem "ransack"
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development do
-  gem "capistrano", "~> 3.0"
+  gem "capistrano"
   gem "capistrano-rails"
   gem "capistrano-bundler"
   gem "capistrano3-unicorn"
@@ -24,14 +24,14 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
-  gem 'factory_girl_rails', '4.3.0'
+  gem 'factory_girl_rails'
 end
 
 group :test do
-  gem 'shoulda-matchers', '~> 2.5.0'
-  gem 'capybara', '~> 2.2.0'
-  gem 'poltergeist', '~> 1.5.0'
-  gem 'database_cleaner', '~> 1.2.0'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :staging, :production do
