@@ -1,33 +1,67 @@
+GIT
+  remote: git://github.com/activerecord-hackery/polyamorous.git
+  revision: 3d45f4c9219b5e6626096d38aa04f401b7ce7808
+  specs:
+    polyamorous (0.6.4)
+      activerecord (>= 3.0)
+
+GIT
+  remote: git://github.com/activerecord-hackery/ransack.git
+  revision: d51c78f9071f291b0707ed32093e191f4d8d3b26
+  branch: rails-4.1
+  specs:
+    ransack (1.1.0)
+      actionpack (>= 4.0)
+      activerecord (>= 4.0)
+      activesupport (>= 4.0)
+      i18n
+
+GIT
+  remote: git://github.com/rspec/rspec-rails.git
+  revision: a32b9109ce0c0008b1c83576423d98d732b5bf8b
+  specs:
+    rspec-rails (3.0.0.beta2)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-collection_matchers
+      rspec-core (= 3.0.0.beta2)
+      rspec-expectations (= 3.0.0.beta2)
+      rspec-mocks (= 3.0.0.beta2)
+      rspec-support (= 3.0.0.beta2)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (4.0.4)
-      actionpack (= 4.0.4)
+    actionmailer (4.1.0.rc2)
+      actionpack (= 4.1.0.rc2)
+      actionview (= 4.1.0.rc2)
       mail (~> 2.5.4)
-    actionpack (4.0.4)
-      activesupport (= 4.0.4)
-      builder (~> 3.1.0)
-      erubis (~> 2.7.0)
+    actionpack (4.1.0.rc2)
+      actionview (= 4.1.0.rc2)
+      activesupport (= 4.1.0.rc2)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
-    activemodel (4.0.4)
-      activesupport (= 4.0.4)
-      builder (~> 3.1.0)
-    activerecord (4.0.4)
-      activemodel (= 4.0.4)
-      activerecord-deprecated_finders (~> 1.0.2)
-      activesupport (= 4.0.4)
-      arel (~> 4.0.0)
-    activerecord-deprecated_finders (1.0.3)
-    activesupport (4.0.4)
+    actionview (4.1.0.rc2)
+      activesupport (= 4.1.0.rc2)
+      builder (~> 3.1)
+      erubis (~> 2.7.0)
+    activemodel (4.1.0.rc2)
+      activesupport (= 4.1.0.rc2)
+      builder (~> 3.1)
+    activerecord (4.1.0.rc2)
+      activemodel (= 4.1.0.rc2)
+      activesupport (= 4.1.0.rc2)
+      arel (~> 5.0.0)
+    activesupport (4.1.0.rc2)
       i18n (~> 0.6, >= 0.6.9)
-      minitest (~> 4.2)
-      multi_json (~> 1.3)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
       thread_safe (~> 0.1)
-      tzinfo (~> 0.3.37)
-    arel (4.0.2)
-    atomic (1.1.16)
-    builder (3.1.4)
+      tzinfo (~> 1.1)
+    arel (5.0.0)
+    builder (3.2.2)
     capistrano (3.1.0)
       i18n
       rake (>= 10.0.0)
@@ -89,7 +123,7 @@ GEM
     mini_magick (3.7.0)
       subexec (~> 0.2.1)
     mini_portile (0.5.3)
-    minitest (4.7.5)
+    minitest (5.3.2)
     multi_json (1.9.2)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -111,31 +145,27 @@ GEM
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
-    polyamorous (0.6.4)
-      activerecord (>= 3.0)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
-    rails (4.0.4)
-      actionmailer (= 4.0.4)
-      actionpack (= 4.0.4)
-      activerecord (= 4.0.4)
-      activesupport (= 4.0.4)
+    rails (4.1.0.rc2)
+      actionmailer (= 4.1.0.rc2)
+      actionpack (= 4.1.0.rc2)
+      actionview (= 4.1.0.rc2)
+      activemodel (= 4.1.0.rc2)
+      activerecord (= 4.1.0.rc2)
+      activesupport (= 4.1.0.rc2)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 4.0.4)
+      railties (= 4.1.0.rc2)
       sprockets-rails (~> 2.0.0)
-    railties (4.0.4)
-      actionpack (= 4.0.4)
-      activesupport (= 4.0.4)
+    railties (4.1.0.rc2)
+      actionpack (= 4.1.0.rc2)
+      activesupport (= 4.1.0.rc2)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.2.2)
-    ransack (1.1.0)
-      actionpack (>= 3.0)
-      activerecord (>= 3.0)
-      polyamorous (~> 0.6.0)
     rspec-collection_matchers (0.0.3)
       rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.0.0.beta2)
@@ -144,16 +174,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (= 3.0.0.beta2)
     rspec-mocks (3.0.0.beta2)
-      rspec-support (= 3.0.0.beta2)
-    rspec-rails (3.0.0.beta2)
-      actionpack (>= 3.0)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-collection_matchers
-      rspec-core (= 3.0.0.beta2)
-      rspec-expectations (= 3.0.0.beta2)
-      rspec-mocks (= 3.0.0.beta2)
       rspec-support (= 3.0.0.beta2)
     rspec-support (3.0.0.beta2)
     sass (3.3.4)
@@ -181,8 +201,7 @@ GEM
     term-ansicolor (1.3.0)
       tins (~> 1.0)
     thor (0.19.1)
-    thread_safe (0.3.1)
-      atomic (>= 1.1.7, < 2)
+    thread_safe (0.3.2)
     tilt (1.4.1)
     tins (1.0.1)
     treetop (1.4.15)
@@ -190,7 +209,8 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.2.1)
       coffee-rails
-    tzinfo (0.3.39)
+    tzinfo (1.1.0)
+      thread_safe (~> 0.1)
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -222,9 +242,10 @@ DEPENDENCIES
   omniauth
   omniauth-twitter
   poltergeist
-  rails (= 4.0.4)
-  ransack
-  rspec-rails (~> 3.0.0.beta)
+  polyamorous!
+  rails (= 4.1.0.rc2)
+  ransack!
+  rspec-rails (~> 3.0.0.beta)!
   sass-rails
   shoulda-matchers
   sqlite3

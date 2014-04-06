@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.4'
+gem 'rails', '4.1.0.rc2'
 gem 'sqlite3'
 gem 'sass-rails'
 gem 'uglifier'
@@ -11,7 +11,8 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
-gem "ransack"
+gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.1"
+gem "polyamorous", github: "activerecord-hackery/polyamorous"
 gem 'carrierwave'
 gem 'mini_magick'
 
@@ -23,7 +24,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'rspec-rails', '~> 3.0.0.beta', github: 'rspec/rspec-rails'
   gem 'factory_girl_rails'
 end
 
