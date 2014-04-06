@@ -17,6 +17,28 @@ GIT
       i18n
 
 GIT
+  remote: git://github.com/rspec/rspec-core.git
+  revision: b897913d83df82fbe681f50e9993cd54faaf3efd
+  specs:
+    rspec-core (3.0.0.beta2)
+      rspec-support (= 3.0.0.beta2)
+
+GIT
+  remote: git://github.com/rspec/rspec-expectations.git
+  revision: 0e3e382a632bcf9d26a781da6261bf117b36f931
+  specs:
+    rspec-expectations (3.0.0.beta2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.0.0.beta2)
+
+GIT
+  remote: git://github.com/rspec/rspec-mocks.git
+  revision: de63b7d982cb260c25b0f01d1956682cfe23e71a
+  specs:
+    rspec-mocks (3.0.0.beta2)
+      rspec-support (= 3.0.0.beta2)
+
+GIT
   remote: git://github.com/rspec/rspec-rails.git
   revision: a32b9109ce0c0008b1c83576423d98d732b5bf8b
   specs:
@@ -30,6 +52,12 @@ GIT
       rspec-expectations (= 3.0.0.beta2)
       rspec-mocks (= 3.0.0.beta2)
       rspec-support (= 3.0.0.beta2)
+
+GIT
+  remote: git://github.com/rspec/rspec-support.git
+  revision: 86aa1eaf676ae81cc0bbb41cc296bb0743071457
+  specs:
+    rspec-support (3.0.0.beta2)
 
 GEM
   remote: https://rubygems.org/
@@ -168,14 +196,6 @@ GEM
     rake (10.2.2)
     rspec-collection_matchers (0.0.3)
       rspec-expectations (>= 2.99.0.beta1)
-    rspec-core (3.0.0.beta2)
-      rspec-support (= 3.0.0.beta2)
-    rspec-expectations (3.0.0.beta2)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.0.0.beta2)
-    rspec-mocks (3.0.0.beta2)
-      rspec-support (= 3.0.0.beta2)
-    rspec-support (3.0.0.beta2)
     sass (3.3.4)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -245,7 +265,11 @@ DEPENDENCIES
   polyamorous!
   rails (= 4.1.0.rc2)
   ransack!
+  rspec-core (~> 3.0.0.beta)!
+  rspec-expectations (~> 3.0.0.beta)!
+  rspec-mocks (~> 3.0.0.beta)!
   rspec-rails (~> 3.0.0.beta)!
+  rspec-support (~> 3.0.0.beta)!
   sass-rails
   shoulda-matchers
   sqlite3
