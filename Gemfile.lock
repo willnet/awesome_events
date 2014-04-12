@@ -18,14 +18,14 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-core.git
-  revision: b897913d83df82fbe681f50e9993cd54faaf3efd
+  revision: a34d9837bc2d1c96c7f89397ebe7b6d38f0e34de
   specs:
     rspec-core (3.0.0.beta2)
       rspec-support (= 3.0.0.beta2)
 
 GIT
   remote: git://github.com/rspec/rspec-expectations.git
-  revision: 0e3e382a632bcf9d26a781da6261bf117b36f931
+  revision: afc439cc10676c6406c74efa07df87081dbca4a3
   specs:
     rspec-expectations (3.0.0.beta2)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -33,14 +33,14 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-mocks.git
-  revision: de63b7d982cb260c25b0f01d1956682cfe23e71a
+  revision: d2be1035a098b89d591d4573becae086452baf8c
   specs:
     rspec-mocks (3.0.0.beta2)
       rspec-support (= 3.0.0.beta2)
 
 GIT
   remote: git://github.com/rspec/rspec-rails.git
-  revision: a32b9109ce0c0008b1c83576423d98d732b5bf8b
+  revision: 3d63b16bc6d8f8cf6d605e1d62e940f8441d0cd7
   specs:
     rspec-rails (3.0.0.beta2)
       actionpack (>= 3.0)
@@ -55,34 +55,34 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-support.git
-  revision: 86aa1eaf676ae81cc0bbb41cc296bb0743071457
+  revision: 2d12b1e2368054cf9997fa2b2e41329769aa812d
   specs:
     rspec-support (3.0.0.beta2)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (4.1.0.rc2)
-      actionpack (= 4.1.0.rc2)
-      actionview (= 4.1.0.rc2)
+    actionmailer (4.1.0)
+      actionpack (= 4.1.0)
+      actionview (= 4.1.0)
       mail (~> 2.5.4)
-    actionpack (4.1.0.rc2)
-      actionview (= 4.1.0.rc2)
-      activesupport (= 4.1.0.rc2)
+    actionpack (4.1.0)
+      actionview (= 4.1.0)
+      activesupport (= 4.1.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
-    actionview (4.1.0.rc2)
-      activesupport (= 4.1.0.rc2)
+    actionview (4.1.0)
+      activesupport (= 4.1.0)
       builder (~> 3.1)
       erubis (~> 2.7.0)
-    activemodel (4.1.0.rc2)
-      activesupport (= 4.1.0.rc2)
+    activemodel (4.1.0)
+      activesupport (= 4.1.0)
       builder (~> 3.1)
-    activerecord (4.1.0.rc2)
-      activemodel (= 4.1.0.rc2)
-      activesupport (= 4.1.0.rc2)
+    activerecord (4.1.0)
+      activemodel (= 4.1.0)
+      activesupport (= 4.1.0)
       arel (~> 5.0.0)
-    activesupport (4.1.0.rc2)
+    activesupport (4.1.0)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -177,19 +177,19 @@ GEM
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
-    rails (4.1.0.rc2)
-      actionmailer (= 4.1.0.rc2)
-      actionpack (= 4.1.0.rc2)
-      actionview (= 4.1.0.rc2)
-      activemodel (= 4.1.0.rc2)
-      activerecord (= 4.1.0.rc2)
-      activesupport (= 4.1.0.rc2)
+    rails (4.1.0)
+      actionmailer (= 4.1.0)
+      actionpack (= 4.1.0)
+      actionview (= 4.1.0)
+      activemodel (= 4.1.0)
+      activerecord (= 4.1.0)
+      activesupport (= 4.1.0)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 4.1.0.rc2)
-      sprockets-rails (~> 2.0.0)
-    railties (4.1.0.rc2)
-      actionpack (= 4.1.0.rc2)
-      activesupport (= 4.1.0.rc2)
+      railties (= 4.1.0)
+      sprockets-rails (~> 2.0)
+    railties (4.1.0)
+      actionpack (= 4.1.0)
+      activesupport (= 4.1.0)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
@@ -221,7 +221,7 @@ GEM
     term-ansicolor (1.3.0)
       tins (~> 1.0)
     thor (0.19.1)
-    thread_safe (0.3.2)
+    thread_safe (0.3.3)
     tilt (1.4.1)
     tins (1.0.1)
     treetop (1.4.15)
@@ -263,7 +263,7 @@ DEPENDENCIES
   omniauth-twitter
   poltergeist
   polyamorous!
-  rails (= 4.1.0.rc2)
+  rails (= 4.1.0)
   ransack!
   rspec-core (~> 3.0.0.beta)!
   rspec-expectations (~> 3.0.0.beta)!
