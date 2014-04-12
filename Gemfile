@@ -11,8 +11,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
-gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.1"
-gem "polyamorous", github: "activerecord-hackery/polyamorous"
+gem "ransack"
 gem 'carrierwave'
 gem 'mini_magick'
 

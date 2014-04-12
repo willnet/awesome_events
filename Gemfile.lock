@@ -1,22 +1,4 @@
 GIT
-  remote: git://github.com/activerecord-hackery/polyamorous.git
-  revision: 3d45f4c9219b5e6626096d38aa04f401b7ce7808
-  specs:
-    polyamorous (0.6.4)
-      activerecord (>= 3.0)
-
-GIT
-  remote: git://github.com/activerecord-hackery/ransack.git
-  revision: d51c78f9071f291b0707ed32093e191f4d8d3b26
-  branch: rails-4.1
-  specs:
-    ransack (1.1.0)
-      actionpack (>= 4.0)
-      activerecord (>= 4.0)
-      activesupport (>= 4.0)
-      i18n
-
-GIT
   remote: git://github.com/rspec/rspec-core.git
   revision: a34d9837bc2d1c96c7f89397ebe7b6d38f0e34de
   specs:
@@ -187,6 +169,8 @@ GEM
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
+    polyamorous (1.0.0)
+      activerecord (>= 3.0)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -208,6 +192,12 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.2.2)
+    ransack (1.2.2)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.0.0)
     rspec-collection_matchers (0.0.3)
       rspec-expectations (>= 2.99.0.beta1)
     sass (3.3.4)
@@ -276,9 +266,8 @@ DEPENDENCIES
   omniauth
   omniauth-twitter
   poltergeist
-  polyamorous!
   rails (= 4.1.0)
-  ransack!
+  ransack
   rspec-core (~> 3.0.0.beta)!
   rspec-expectations (~> 3.0.0.beta)!
   rspec-mocks (~> 3.0.0.beta)!
