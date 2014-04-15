@@ -4,7 +4,7 @@ lock '3.1.0'
 lock '3.1.0'
 
 set :application, 'awsome_events'
-set :repo_url, 'git@github.com:willnet/awesome_events.git'
+set :repo_url, 'git@github.com:udzura/awesome_events.git'
 
 set :deploy_to, '/var/www/awsome-events'
 set :scm, :git
