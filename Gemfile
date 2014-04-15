@@ -16,6 +16,10 @@ gem "polyamorous", github: "activerecord-hackery/polyamorous"
 gem 'carrierwave'
 gem 'mini_magick'
 
+
+gem 'status_show_plugin', git: 'git@bitbucket.org:udzura/railsbook-status_show_plugin.git'
+gem 'simple_auth_plugin', git: 'git@bitbucket.org:udzura/railsbook-simple_auth_plugin.git', require: 'simple_auth_plugin/railtie'
+
 group :development do
   gem "capistrano"
   gem "capistrano-rails"
