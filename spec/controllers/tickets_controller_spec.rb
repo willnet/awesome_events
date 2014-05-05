@@ -38,9 +38,9 @@ describe TicketsController do
       before { login(user) }
 
       context 'パラメータが正しいとき' do
-        it 'ステータスコードとして200が返ること' do
+        it 'ステータスコードとして201が返ること' do
           post :create, event_id: event.id, ticket: { comment: 'コメント' }
-          expect(response.status).to eq(200)
+          expect(response.status).to eq(201)
         end
 
         it 'Ticketレコードが1件増えること' do
