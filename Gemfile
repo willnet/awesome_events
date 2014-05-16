@@ -15,10 +15,6 @@ gem "ransack", '~> 1.2.2'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 3.7.0'
 
-
-gem 'status_show_plugin', git: 'git@bitbucket.org:udzura/railsbook-status_show_plugin.git'
-gem 'simple_auth_plugin', git: 'git@bitbucket.org:udzura/railsbook-simple_auth_plugin.git', require: 'simple_auth_plugin/railtie'
-
 group :development do
   gem "capistrano"
   gem "capistrano-rails"
