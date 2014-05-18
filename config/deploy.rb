@@ -1,12 +1,10 @@
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
-lock '3.1.0'
+set :application, 'awesome_events'
+set :repo_url, 'git@github.com:willnet/awesome_events.git'
 
-set :application, 'awsome_events'
-set :repo_url, 'git@github.com:udzura/awesome_events.git'
-
-set :deploy_to, '/var/www/awsome-events'
+set :deploy_to, '/var/www/awesome-events'
 set :scm, :git
 
 set :keep_releases, 5

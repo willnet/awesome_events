@@ -16,7 +16,7 @@ gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 3.7.0'
 
 group :development do
-  gem "capistrano"
+  gem "capistrano", "3.1.0"
   gem "capistrano-rails"
   gem "capistrano-bundler"
   gem "capistrano3-unicorn"
