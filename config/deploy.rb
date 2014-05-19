@@ -13,7 +13,7 @@ set :default_env, {
   rbenv_root: "/usr/local/rbenv",
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH"
 }
-
+set :branch, :dotenv
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
@@ -45,7 +45,7 @@ set :default_env, {
 # set :keep_releases, 5
 
 set :linked_dirs, (fetch(:linked_dirs) + ['tmp/pids'])
-
+set :linked_files, %w{.env.staging}
 set :unicorn_rack_env, "none"
 set :unicorn_config_path, 'config/unicorn.rb'
 
