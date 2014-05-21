@@ -72,41 +72,6 @@ describe Event do
     end
   end
 
-  describe '#event_image_should_have_valid_mime_type' do
-    valid_content_types = %w(image/jpeg image/png image/gif)
-
-    valid_content_types.each do |valid_content_type|
-      context "#event_image.file.content_type が '#{valid_content_type}' を返すとき" do
-        let!(:event) do
-          event = Event.new
-          allow(event).to receive(:event_image) { double('event_image', file: double('file', content_type: valid_content_type)) }
-          event
-        end
-
-        it '#errors[:event_image] が空であること' do
-          event.send(:event_image_should_have_valid_mime_type)
-          expect(event.errors[:event_image]).to be_blank
-        end
-      end
-    end
-
-    invalid_content_types = %w(text/plain text/css video/mpeg)
-    invalid_content_types.each do |invalid_content_type|
-      context "#event_image.file.content_type が '#{invalid_content_type}' を返すとき" do
-        let!(:event) do
-          event = Event.new
-          allow(event).to receive(:event_image) { double('event_image', file: double('file', content_type: invalid_content_type)) }
-          event
-        end
-
-        it '#errors[:event_image] が空でないこと' do
-          event.send(:event_image_should_have_valid_mime_type)
-          expect(event.errors[:event_image]).to be_present
-        end
-      end
-    end
-  end
-
   describe '#created_by?' do
     let(:event) { create(:event) }
     subject { event.created_by?(user) }
