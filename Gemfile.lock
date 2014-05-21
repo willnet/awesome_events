@@ -1,3 +1,44 @@
+GIT
+  remote: git://github.com/rspec/rspec-core.git
+  revision: a8cf7bf3e0349e4f6d3ab34f4aaef93a3209db6f
+  specs:
+    rspec-core (3.0.0.beta2)
+      rspec-support (= 3.0.0.beta2)
+
+GIT
+  remote: git://github.com/rspec/rspec-expectations.git
+  revision: d2bb4f609f74aebccebca49a3478c07a720ec92f
+  specs:
+    rspec-expectations (3.0.0.beta2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.0.0.beta2)
+
+GIT
+  remote: git://github.com/rspec/rspec-mocks.git
+  revision: 98bab2457fd0d5ed799130c55dc5cf30815cbeff
+  specs:
+    rspec-mocks (3.0.0.beta2)
+      rspec-support (= 3.0.0.beta2)
+
+GIT
+  remote: git://github.com/rspec/rspec-rails.git
+  revision: ab71447ad70c7f675b6f6453aa4864a65731e4e2
+  specs:
+    rspec-rails (3.0.0.beta2)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (= 3.0.0.beta2)
+      rspec-expectations (= 3.0.0.beta2)
+      rspec-mocks (= 3.0.0.beta2)
+      rspec-support (= 3.0.0.beta2)
+
+GIT
+  remote: git://github.com/rspec/rspec-support.git
+  revision: 454b0948685e1aace29e0e1828375ca121128da7
+  specs:
+    rspec-support (3.0.0.beta2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -141,22 +182,6 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.0.0)
-    rspec-core (3.0.0.rc1)
-      rspec-support (= 3.0.0.rc1)
-    rspec-expectations (3.0.0.rc1)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.0.0.rc1)
-    rspec-mocks (3.0.0.rc1)
-      rspec-support (= 3.0.0.rc1)
-    rspec-rails (3.0.0.rc1)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-core (= 3.0.0.rc1)
-      rspec-expectations (= 3.0.0.rc1)
-      rspec-mocks (= 3.0.0.rc1)
-      rspec-support (= 3.0.0.rc1)
-    rspec-support (3.0.0.rc1)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -227,7 +252,11 @@ DEPENDENCIES
   poltergeist (~> 1.5.0)
   rails (= 4.1.1)
   ransack (~> 1.2.2)
-  rspec-rails (~> 3.0.0.rc1)
+  rspec-core (~> 3.0.0.beta)!
+  rspec-expectations (~> 3.0.0.beta)!
+  rspec-mocks (~> 3.0.0.beta)!
+  rspec-rails (~> 3.0.0.beta)!
+  rspec-support (~> 3.0.0.beta)!
   sass-rails (~> 4.0.3)
   shoulda-matchers (~> 2.6.0)
   spring
