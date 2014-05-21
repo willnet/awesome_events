@@ -52,7 +52,7 @@ describe User do
   describe '#check_all_events_finished' do
     let(:user) { create :user }
 
-    context 'ユーザに関連する公開中の未終了イベント、未終了の参加イベントともに存在していない時' do
+    context 'ユーザに関連する公開中の未終了イベント、未終了の参加イベントともに存在していないとき' do
       before do
         event = create :event, owner: user, start_time: 2.day.ago, end_time: 1.day.ago
         create :ticket, user: user, event: event
