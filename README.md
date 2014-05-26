@@ -1,6 +1,6 @@
 # awesome events
 
-これは、[パーフェクト Ruby on Rails](http://www.amazon.co.jp/%E3%83%91%E3%83%BC%E3%83%95%E3%82%A7%E3%82%AF%E3%83%88-Ruby-Rails-%E3%81%99%E3%81%8C-%E3%81%BE%E3%81%95%E3%81%8A/dp/4774165166)のPart3で作成されたサンプルアプリです。
+これは、[パーフェクトRuby on Rails](http://gihyo.jp/book/2014/978-4-7741-6516-5)のPart3で作成されたサンプルアプリです。
 
 イベント情報を登録／編集したり、イベントに参加登録したりできます。
 
