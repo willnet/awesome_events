@@ -8,12 +8,12 @@
 
 次のライブラリをインストールしておいてください。詳しくは書籍を参考にしてください。
 
-* Ruby 2.0.0 以上
-* bundler
-* sqlite3
-* phantomjs
-* nodejs
-* ImageMagick
+* Ruby 2.0.0 以上(https://www.ruby-lang.org/ja/documentation/installation/)
+* bundler(https://bundler.io/)
+* sqlite3(https://www.sqlite.org/quickstart.html)
+* phantomjs(http://phantomjs.org/download.html)
+* nodejs(https://nodejs.org/ja/download/package-manager/)
+* ImageMagick(https://www.imagemagick.org/script/download.php)
 
 
 ## セットアップ方法
